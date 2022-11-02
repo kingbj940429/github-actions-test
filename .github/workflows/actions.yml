@@ -6,11 +6,22 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+      # git hub actions 의 가상머신에는 git 이 깔려있어서 직접 git checkout 명령어를 날려도 되지만, 아래 액션을 사용하자
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls -a        
       - name: Simple JS Actions
         id: greet
         # Master is possible too, SHA is too, and v1 get latest of v1
         uses: actions/hello-world-javascript-action@v1 
         with:
-          who-to-greet: John
+          who-to-greet: John # env
       - name: Log Greeting time
         run: echo "${{ steps.greet.outputs.time }}"
