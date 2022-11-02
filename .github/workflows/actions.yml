@@ -21,8 +21,6 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
-          git clone git@github:$GITHUB_REPOSITORY
-          git checkout $GITHUB_SHA
       - name: Simple JS Actions
         id: greet
         # Master is possible too, SHA is too, and v1 get latest of v1
