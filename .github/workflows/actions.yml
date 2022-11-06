@@ -1,6 +1,10 @@
 name: Actions WorkFlow
 
-on: [push, pull_request]
+on: 
+  repository_dispatch:
+    types: [build]
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 
 jobs: 
   run-github-actions:
@@ -13,16 +17,6 @@ jobs:
       # git hub actions 의 가상머신에는 git 이 깔려있어서 직접 git checkout 명령어를 날려도 되지만, 아래 액션을 사용하자
       - name: Checkout
         uses: actions/checkout@v1
-      - name: List Files After Checkout
-        run: |
-          pwd
-          ls -a        
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
-          git clone git@github:$GITHUB_REPOSITORY
-          git checkout $GITHUB_SHA
       - name: Simple JS Actions
         id: greet
         # Master is possible too, SHA is too, and v1 get latest of v1

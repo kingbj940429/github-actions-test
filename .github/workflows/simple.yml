@@ -1,6 +1,6 @@
 name: shell commands
 
-on: [push] # 여러개라면 배열 가능
+on: [pull_request] # 여러개라면 배열 가능
 
 jobs:
   run-shell-command: # job name
