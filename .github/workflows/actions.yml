@@ -1,14 +1,35 @@
-name: Actions WorkFlow
+# name: Actions WorkFlow
 
-on: 
-  repository_dispatch:
-    types: [build]
-  pull_request:
-    types: [closed, assigned, opened, reopened]
+# on: 
+#   push:
+#     branches:
+#       - main
+#       - 'feature/*' # matches feature/featA, feature/dev ...  but not feature/feat/A
+#       - 'feature/**' # 이건 하위까지 다 된다
+#       - '!feature/featC' # 일치하는 패턴있더라도 이건 무시하게 된다. 얘를 포함하는 패턴 아래에 놓아야한다. 예를 들어 feature/* 패턴 아래 놓아야 한다.
+#     tags:
+#       - v1.*
+    
+#     paths:
+#       - '**.js' # 자바스크립트 파일이 푸쉬될 때 동작하게 된다
+#       - '!filename.js' # 자바스크립트 파일이 푸쉬될 때 동작하는데 이 파일을 무시한다
 
-jobs: 
-  run-github-actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: payload
-        run: echo ${{ github.event.client_payload }}
+#     # 모든 브랜치에서 실행하게된다. 하지만 명시하면 그 브랜치만 무시 가능 branches 랑 동시에 가질 순 없다
+#     branches-ignore:
+
+#   # 누군가 main 에 merge 할 경우 이벤트가 발생한다
+#   pull_request:
+#     branches:
+#       - main
+
+#   # repository_dispatch:
+#   #   types: [build]
+#   # pull_request:
+#   #   types: [closed, assigned, opened, reopened]
+
+# jobs: 
+#   run-github-actions:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: payload
+#         run: echo ${{ github.event.client_payload }}
