@@ -8,6 +8,15 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest] # 이럴 경우 행렬이기 때문에 총 9번 실행된다. os 마다 node 하나씩
         node_version: [6,8,10] 
+        include:
+          - os: ubuntu-latest
+            node_version: 4
+            is_ubuntu_8: "true"
+        exclude: # 아래 것들을 제외하고 실행
+          - os: ubuntu-latest
+            node_version: 6
+          - os: macos-latest
+            node_version: 8
 
       max-parallel: 2 # 동시에 처리하는 일의 갯수
       fail-fast: false # true 로 하게되면 6,8,10 버전에서 하나라도 실패하면 중지된다
