@@ -1,0 +1,14 @@
+name: Container
+
+on: push
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container: # 이런식으로 컨테이너를 지정하면 os 에 띄어져 있는 컨테이너에서 스텝이 잡이 이루어진다
+      image: node:13.5.0-alpine3.10
+    steps:
+      - name: Log node version
+        run: |
+          node -v
+          cat /etc/os-release
