@@ -10,4 +10,3 @@ jobs:
       - name: env test
         run: |
           echo "$GITHUB_REF"
-
