@@ -1,11 +1,11 @@
 name: Actions WorkFlow
 
-on: 
+on:
   pull_request:
-    branch: [dev]
-    types: [closed, assigned, opened, reopened]
+    branch: [ dev ]
+    types: [ closed, assigned, opened, reopened ]
 
-jobs: 
+jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
@@ -13,9 +13,9 @@ jobs:
         run: |
           env
           echo '${{ toJSON(github) }}'
-     - name: github contexts
-        if: contains(${{ github.event.action }}, 'closed')
-        run: |
-          echo ${{ github.event.action }}
-          echo '${{ toJSON(github) }}'
+      - name: github contexts
+          if: contains(${{ github.event.action }}, 'closed')
+          run: |
+            echo ${{ github.event.action }}
+            echo '${{ toJSON(github) }}'
           
