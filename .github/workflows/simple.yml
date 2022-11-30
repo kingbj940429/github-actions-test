@@ -1,28 +1,13 @@
-name: shell commands
-
-on: [pull_request] # 여러개라면 배열 가능
+name: CI
+on:
+  pull_request:
+    branches: [ dev ]
 
 jobs:
-  run-shell-command: # job name
+  docker-build-push:
     runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo "Hello World"
-      - name: multiline script
+      - name: env test
         run: |
-          node -v
-          npm -v
-      - name: python command
-        run: |
-          import platform
-          print(platform.processor())
-        shell: python
-  run-windows-commands:
-    runs-on: windows-latest
-    needs: ["run-shell-command"]
-    steps:
-      - name: Directory PowerShell
-        run: Get-Location
-      - name: Directory Bash
-        run: pwd
-        shell: bash
+          echo "$GITHUB_REF"
+
