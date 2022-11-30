@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test env
+        if: !contains(github.event.action, 'closed')
         run: |
           env
           echo '${{ toJSON(github) }}'
@@ -17,5 +18,5 @@ jobs:
         if: contains(github.event.action, 'closed')
         run: |
           echo ${{ github.event.action }}
-          echo ${{ toJSON(github) }}
+          echo '${{ toJSON(github) }}'
           
