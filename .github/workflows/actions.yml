@@ -14,7 +14,6 @@ jobs:
           env
           echo '${{ toJSON(github) }}'
       - name: github contexts
-          if: contains(github.event.action, 'closed')
           run: |
             echo ${{ github.event.action }}
             echo '${{ toJSON(github) }}'
