@@ -1,14 +1,16 @@
 name: Actions WorkFlow
 
 on: 
-  repository_dispatch:
-    types: [build]
   pull_request:
+    branch: [dev]
     types: [closed, assigned, opened, reopened]
 
 jobs: 
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: payload
-        run: echo ${{ github.event.client_payload }}
+      - name: test env
+        run: |
+          env
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
