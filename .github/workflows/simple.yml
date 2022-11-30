@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: env test
         run: |
-          echo "$GITHUB_REF"
+          echo "$GITHUB_SHA"
