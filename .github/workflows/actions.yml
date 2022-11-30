@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test env
+        if: contains(${{ github.event.action }}, 'closed')
         run: |
           env
           echo '${{ toJSON(github) }}'
+          
