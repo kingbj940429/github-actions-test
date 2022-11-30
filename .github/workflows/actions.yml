@@ -12,5 +12,4 @@ jobs:
       - name: test env
         run: |
           env
-          echo $GITHUB_SHA
-          echo $GITHUB_REF
+          echo '${{ toJSON(github) }}'
