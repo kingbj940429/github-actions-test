@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - id: foo
-        uses: kingbj940429/hello-world-composite-action@v1.1
+        uses: kingbj940429/hello-world-composite-action@v1.0.1
         with:
           who-to-greet: 'Mona the Octocat'
           tag_value: v1.0.1
