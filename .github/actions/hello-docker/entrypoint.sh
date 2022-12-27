@@ -4,9 +4,9 @@ echo "::debug ::Debug Message"
 echo "::warning ::Warning Message"
 echo "::error ::Error Message"
 
-echo "::add-mask::$1"
+echo "::add-mask::Hello"
 
-echo "Hello $1"
+echo "Hello Hello"
 
 time=$(date)
 echo "::set-output name=time::$time"
