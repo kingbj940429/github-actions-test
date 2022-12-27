@@ -16,6 +16,7 @@ jobs:
           echo $GITHUB_OUTPUT
           echo $RANDOM
           echo $GITHUB_PATH
+          echo $INPUT_TAG_VALUE
         shell: bash
 
 
