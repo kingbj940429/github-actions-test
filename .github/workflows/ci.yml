@@ -6,7 +6,14 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v3
+
       - id: foo
         uses: ./.github/actions/hello-docker
         with:
           who-to-greet: 'Mona the Octocat'
+
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}" 
+        
