@@ -18,13 +18,12 @@ outputs:
 
 runs:
   using: "composite"
-  env:
-    TEST: "test"
   steps:
     - name: env test
       shell: bash
       run: |
         echo "$TEST"
+
     - name: say-hello
       id: say-hello
       shell: bash
