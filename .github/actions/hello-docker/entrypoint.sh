@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ true ]
+then
+  echo "error"
+fi
+
 echo "::notice::Missing Class"
 echo "::debug::Debug Message"
 echo "::warning::Warning Message"
