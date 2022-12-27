@@ -6,7 +6,7 @@ inputs:
     required: true
     default: 'World'
 
-  tag_value:
+  tag-value:
     description: The destination tag (the new tag) to create and publish
     required: true
 
@@ -38,5 +38,5 @@ runs:
 
     - run: ci.sh
       env:
-        TAG_VALUE: ${{ inputs.tag_value }}
+        TAG_VALUE: ${{ inputs.tag-value }}
       shell: bash
