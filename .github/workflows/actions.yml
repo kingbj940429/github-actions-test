@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: kingbj940429/helm-set-image-tag-action@v1.0.7
+        uses: ./.github/actions/helm-set-tag
         with:
           who-to-greet: 'Mona the Octocat'
           tag_value: v1.0.0
