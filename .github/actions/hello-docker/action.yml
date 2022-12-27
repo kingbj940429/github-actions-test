@@ -12,9 +12,15 @@ outputs:
     value: "Random"
 
 runs:
-  using: "composite"
-  steps:
-    - shell: bash
-      env:
-        TEST: "TEST ENV"
-      run: ./.github/actions/hello-docker/entrypoint.sh
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
+
+#runs:
+#  using: "composite"
+#  steps:
+#    - shell: bash
+#      env:
+#        TEST: "TEST ENV"
+#      run: ./.github/actions/hello-docker/entrypoint.sh
