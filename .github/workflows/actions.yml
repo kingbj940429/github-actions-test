@@ -10,7 +10,7 @@ jobs:
         uses: ./.github/actions/helm-set-tag
         with:
           who-to-greet: 'Mona the Octocat'
-          tag_value: v1.0.0
+          tag-value: v1.0.0
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
