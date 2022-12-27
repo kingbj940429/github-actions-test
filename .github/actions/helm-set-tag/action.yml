@@ -19,12 +19,16 @@ runs:
   using: "composite"
   steps:
     - name: say-hello
+      id: say-hello
       shell: bash
       env:
         TAG_VALUE: ${{ inputs.tag_value }}
       run: |
         GREETING="Hello $TAG_VALUE"
         echo "::set-output name=greeting::$GREETING"
+
+    - run: echo ${{ steps.say-hello.outputs.greeting }}
+      shell: bash
 
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
@@ -33,4 +37,6 @@ runs:
       shell: bash
 
     - run: ci.sh
+      env:
+        TAG_VALUE: ${{ inputs.tag_value }}
       shell: bash
