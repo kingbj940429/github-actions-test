@@ -1,22 +1,37 @@
-name: Actions WorkFlow
-
-on:
-  pull_request:
-    branch: [ dev ]
-    types: [ closed, assigned, opened, reopened ]
+on: [push]
 
 jobs:
-  run-github-actions:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      - name: test env
-        if: !contains(github.event.action, 'closed')
-        run: |
-          env
-          echo '${{ toJSON(github) }}'
-      - name: github contexts
-        if: contains(github.event.action, 'closed')
-        run: |
-          echo ${{ github.event.action }}
-          echo '${{ toJSON(github) }}'
-          
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: kingbj940429/hello-world-composite-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
+
+#name: Actions WorkFlow
+#
+#on:
+#  pull_request:
+#    branch: [ dev ]
+#    types: [ closed, assigned, opened, reopened ]
+#
+#jobs:
+#  run-github-actions:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: test env
+#        if: !contains(github.event.action, 'closed')
+#        run: |
+#          env
+#          echo '${{ toJSON(github) }}'
+#      - name: github contexts
+#        if: contains(github.event.action, 'closed')
+#        run: |
+#          echo ${{ github.event.action }}
+#          echo '${{ toJSON(github) }}'
+#
