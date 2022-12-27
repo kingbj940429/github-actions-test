@@ -32,4 +32,4 @@ runs:
     - shell: bash
       env:
         TEST: "TEST ENV"
-      run: ./.github/actions/hello-docker/entrypoint.sh
+      run: ${{ github.action_path }}/entrypoint.sh
