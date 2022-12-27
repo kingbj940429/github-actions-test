@@ -9,10 +9,14 @@ inputs:
 outputs:
   random-number:
     description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-number }}
+    value: "Random"
 
 runs:
   using: "composite"
   steps:
+    - shell: bash
+      run: |
+        pwd
+        ls -l
     - shell: bash
       run: entrypoint.sh
