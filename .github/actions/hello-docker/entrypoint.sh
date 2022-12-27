@@ -24,6 +24,7 @@ echo "some stuff"
 echo "::endgroup::"
 
 
+echo $INPUT_TEST
 
 echo "action_state=yellow" >> $GITHUB_ENV
-echo "$action_state"
+echo "$GITHUB_ENV"
