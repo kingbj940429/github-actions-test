@@ -6,11 +6,13 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v3
+
       - id: foo
         uses: ./.github/actions/helm-set-tag
         with:
           who-to-greet: 'Mona the Octocat'
           tag-value: v1.0.0
+
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
