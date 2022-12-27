@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Goodbye"
+echo "Goodbye!!"
 echo "${TAG_VALUE}"
