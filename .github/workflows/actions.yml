@@ -6,19 +6,28 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v3
+
       - id: foo
         uses: kingbj940429/hello-world-composite-action@v1.1
         with:
           who-to-greet: 'Mona the Octocat'
+          tag_value: v1.0.1
+
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+
       - run: |
           echo $GITHUB_OUTPUT
           echo $RANDOM
           echo $GITHUB_PATH
-          echo $INPUT_TAG_VALUE
         shell: bash
 
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.10.0
+
+      - run: helm version
 
 #name: Actions WorkFlow
 #
