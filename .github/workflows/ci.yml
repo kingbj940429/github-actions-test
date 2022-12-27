@@ -14,7 +14,12 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.10.0
 
+      - run: helm version
 #on: [push]
 #
 #jobs:
