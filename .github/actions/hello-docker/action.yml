@@ -14,6 +14,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v3
     - shell: bash
-      run: entrypoint.sh
+      run: ./.github/actions/hello-docker/entrypoint.sh
