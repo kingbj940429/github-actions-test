@@ -16,16 +16,20 @@ outputs:
     description: "Random number"
     value: "Random"
 
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
-
 #runs:
-#  using: "composite"
-#  steps:
-#    - shell: bash
-#      env:
-#        TEST: "TEST ENV"
-#      run: ./.github/actions/hello-docker/entrypoint.sh
+#  using: 'docker'
+#  image: 'Dockerfile'
+#  args:
+#    - ${{ inputs.who-to-greet }}
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        pwd
+        ls -la
+      shell: bash
+    - shell: bash
+      env:
+        TEST: "TEST ENV"
+      run: ./.github/actions/hello-docker/entrypoint.sh
