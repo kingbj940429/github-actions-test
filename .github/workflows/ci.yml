@@ -6,10 +6,23 @@ jobs:
     name: A job to say hello
     steps:
       - name: workflow command
+        shell: bash
         run: |
+          #!/bin/bash
+
+          # Font Color
+          GREEN='\033[0;32m'
+          LIGHT_BLUE='\033[1;34m'
+          NC='\033[0m' # No Color
+
           echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
           stopMarker=$(uuidgen)
           echo "::stop-commands::$stopMarker"
           echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
           echo "::$stopMarker::"
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
+
+          echo "::notice:: ${GREEN}This is Succeed${NC}"
+          echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+
+          echo "::error: This is error ### :rocket:"
