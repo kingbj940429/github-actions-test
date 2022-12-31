@@ -25,4 +25,6 @@ jobs:
           echo "::notice:: ${GREEN}This is Succeed${NC}"
           echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
-          echo "::error: This is error ### :rocket:"
+          echo "::error:: This is error ### :rocket:"
+
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
