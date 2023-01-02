@@ -7,10 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Main Action
-        uses: kingbj940429/hello-world-composite-action@v2
+        uses: kingbj940429/hello-world-composite-action@v3
         with:
           who-to-greet: 'Mona the Octocat'
       - name: Sub Action
-        uses: kingbj940429/hello-world-composite-action/sub-action@v2
+        uses: kingbj940429/hello-world-composite-action/sub-action@v3
         with:
           who-to-greet: 'Mona the Octocat'          
