@@ -6,10 +6,10 @@ jobs:
     name: A job to say hello
     steps:
       - name: Main Action
-        uses: kingbj940429/hello-world-composite-action@v1
+        uses: kingbj940429/hello-world-composite-action@v2
         with:
           who-to-greet: 'Mona the Octocat'
       - name: Sub Action
-        uses: kingbj940429/hello-world-composite-action/sub-action@v1
+        uses: kingbj940429/hello-world-composite-action/sub-action@v2
         with:
           who-to-greet: 'Mona the Octocat'          
