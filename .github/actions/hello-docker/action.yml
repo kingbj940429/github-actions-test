@@ -16,6 +16,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env: 
-    TEST: "env is TEST"
+    TEST: ${{ inputs.who-to-greet }}
   args:
     - "This is Arguments"
