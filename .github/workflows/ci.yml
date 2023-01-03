@@ -12,6 +12,8 @@ jobs:
       - name: helm chart push to nexus
         id: hello
         uses: ./.github/actions/hello-docker
+        with:
+          who-to-greet: "{"key":"value"}"
 
       - name: Get the output time
         run: |
