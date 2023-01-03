@@ -17,5 +17,5 @@ runs:
   image: 'Dockerfile'
   env: 
     TEST: "env is TEST"
-  # args:
-  #   - "This is Arguments"
+  args:
+    - "This is Arguments"
