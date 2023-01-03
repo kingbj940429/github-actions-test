@@ -1,11 +1,10 @@
-# Container image that runs your code
-FROM alpine:3.10
+FROM alpine:3.17
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
+RUN apk upgrade && apk upgrade
+RUN apk --no-cache add bash yq git patch
+
 COPY entrypoint.sh /entrypoint.sh
 
-RUN ls
-RUN cat /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT [ "/entrypoint.sh" ]
