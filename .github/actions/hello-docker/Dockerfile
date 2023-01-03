@@ -1,7 +1,7 @@
 FROM alpine:3.17
 
 RUN apk upgrade && apk upgrade
-RUN apk --no-cache add bash yq git patch
+RUN apk --no-cache add bash jq yq git patch
 
 COPY entrypoint.sh /entrypoint.sh
 
