@@ -5,13 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v3
-      - run: ls -la
-      - name: Main Action
-        uses: kingbj940429/hello-world-composite-action@v7
-        with:
-          who-to-greet: 'Mona the Octocat'
-      - name: Sub Action
-        uses: kingbj940429/hello-world-composite-action/sub-action@v7
-        with:
-          who-to-greet: 'Mona the Octocat'          
+      - name: helm chart push to nexus
+        id: hello
+        uses: ./.github/actions/hello-docker
+
+      - name: Get the output time
+        run: |
+          echo "The time was ${{ steps.hello.outputs.time }}"        
+          echo "The time was ${{ steps.hello.outputs.date }}"        

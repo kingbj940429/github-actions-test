@@ -6,30 +6,16 @@ inputs:
     required: true
     default: 'World'
 
-  who-to-greet-2: # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-
 outputs:
-  random-number:
+  time:
     description: "Random number"
-    value: "Random"
-
-#runs:
-#  using: 'docker'
-#  image: 'Dockerfile'
-#  args:
-#    - ${{ inputs.who-to-greet }}
+  date:
+    description: "Random number"
 
 runs:
-  using: "composite"
-  steps:
-    - run: |
-        pwd
-        ls -la
-      shell: bash
-    - shell: bash
-      env:
-        TEST: "TEST ENV"
-      run: ${{ github.action_path }}/entrypoint.sh
+  using: 'docker'
+  image: 'Dockerfile'
+  env: 
+    TEST: "env is TEST"
+  args:
+    - "This is Arguments"
