@@ -9,11 +9,10 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: helm chart push to nexus
-        id: hello
-        uses: ./.github/actions/hello-docker
+      - name: Main Action
+        uses: kingbj940429/hello-world-composite-action/sub-action@v7
         with:
-          who-to-greet: '{"key":"value"}'
+          who-to-greet: 'Mona the Octocat'
 
       - name: Get the output time
         run: |
