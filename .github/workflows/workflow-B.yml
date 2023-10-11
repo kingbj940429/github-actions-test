@@ -3,18 +3,21 @@ name: Reusable workflow example
 on:
   workflow_call:
     inputs:
-      config-path:
+      hello:
         required: true
         type: string
     secrets:
       token:
-        required: true
+        required: false
 
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v4
-        with:
-          repo-token: ${{ secrets.token }}
-          configuration-path: ${{ inputs.config-path }}
+      - name: reusable test
+        env:
+          HELLO: ${{ inputs.hello }}
+        run: |
+          echo "reusable test"
+          echo "HELLO: $HELLO"
+        
